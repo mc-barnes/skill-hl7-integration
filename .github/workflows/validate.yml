@@ -1,0 +1,85 @@
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  examples:
+    name: Run examples (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Run adt_a01.py
+        run: python examples/adt_a01.py
+
+      - name: Run oru_r01.py
+        run: python examples/oru_r01.py
+
+      - name: Run ack.py
+        run: python examples/ack.py
+
+      - name: Run parser.py
+        run: python examples/parser.py
+
+      - name: Run round_trip.py
+        working-directory: examples
+        run: python round_trip.py
+
+  lint:
+    name: Lint with ruff
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ruff
+        run: pip install ruff
+
+      - name: Lint examples
+        run: ruff check examples/
+
+  validate-frontmatter:
+    name: Validate SKILL.md frontmatter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Validate frontmatter
+        run: |
+          python -c "
+          import yaml
+          with open('SKILL.md') as f:
+              content = f.read()
+          # Extract YAML frontmatter between --- markers
+          parts = content.split('---', 2)
+          assert len(parts) >= 3, 'SKILL.md must have YAML frontmatter between --- markers'
+          fm = yaml.safe_load(parts[1])
+          assert 'name' in fm, 'Frontmatter must have name field'
+          assert 'description' in fm, 'Frontmatter must have description field'
+          print(f'Frontmatter valid: name={fm[\"name\"]}')
+          "
