@@ -16,15 +16,15 @@ A Claude Code skill that helps healthcare engineers and PMs build correct HL7v2 
 ### Option 1: Clone and copy (recommended)
 
 ```bash
-git clone https://github.com/mccaybarnes/hl7-integration-skill.git
-cp hl7-integration-skill/SKILL.md ~/.claude/skills/hl7-integration/SKILL.md
+git clone https://github.com/mc-barnes/skill-hl7-integration.git
+cp skill-hl7-integration/SKILL.md ~/.claude/skills/hl7-integration/SKILL.md
 ```
 
 ### Option 2: Skill Seekers
 
 ```bash
 pip install skill-seekers
-skill-seekers install mccaybarnes/hl7-integration-skill --target claude
+skill-seekers install mc-barnes/skill-hl7-integration --target claude
 ```
 
 ### Option 3: Direct download
