@@ -229,7 +229,7 @@ Format: `Code^Description^I10`
 | `H35.10` | Retinopathy of prematurity |
 | `P77.9` | Necrotizing enterocolitis |
 
-Full reference: [reference/icd10-neonatal.md](reference/icd10-neonatal.md)
+Full reference: [reference/icd10-neonatal.md](reference/icd10-neonatal.md), [reference/icd10-cardiometabolic.md](reference/icd10-cardiometabolic.md)
 
 ### Local Codes
 
@@ -317,5 +317,6 @@ Before shipping any HL7 integration:
 - [reference/segment-map.md](reference/segment-map.md) — Field positions for MSH, EVN, PID, PV1, OBX, DG1, OBR, MSA, NTE
 - [reference/loinc-common.md](reference/loinc-common.md) — Common LOINC codes for vitals, labs, respiratory
 - [reference/icd10-neonatal.md](reference/icd10-neonatal.md) — ICD-10 codes for neonatal conditions
+- [reference/icd10-cardiometabolic.md](reference/icd10-cardiometabolic.md) — ICD-10 codes for cardiometabolic conditions (diabetes, obesity, hypertension, dyslipidemia, HF, ASCVD, CKD, NAFLD)
 - [reference/abnormal-flags.md](reference/abnormal-flags.md) — OBX-8 flag values and EHR alerting behavior
 - [examples/](examples/) — Runnable Python scripts for ADT, ORU, ACK, parsing, round-trip

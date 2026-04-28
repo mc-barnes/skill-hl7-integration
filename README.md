@@ -54,6 +54,7 @@ python examples/round_trip.py   # Build → parse → verify fields match
 - [`reference/segment-map.md`](reference/segment-map.md) — MSH, EVN, PID, PV1, OBX, DG1, OBR, MSA, NTE field positions
 - [`reference/loinc-common.md`](reference/loinc-common.md) — 15+ LOINC codes for vitals, labs, respiratory
 - [`reference/icd10-neonatal.md`](reference/icd10-neonatal.md) — 30+ ICD-10 codes for neonatal conditions
+- [`reference/icd10-cardiometabolic.md`](reference/icd10-cardiometabolic.md) — 70+ ICD-10 codes for cardiometabolic conditions
 - [`reference/abnormal-flags.md`](reference/abnormal-flags.md) — OBX-8 values and how they drive EHR alerting
 
 ## Quick Example
